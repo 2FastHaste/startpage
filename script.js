@@ -1,4 +1,4 @@
-const API_KEY = 3900df0f4a12b7f5326d4d88bfb0750b;
+const API_KEY = '3900df0f4a12b7f5326d4d88bfb0750b';
 const CITY = 'Brussels';
 const UNITS = 'metric';
 
