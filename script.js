@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const API_KEY = '3900df0f4a12b7f5326d4d88bfb0750b'; // replace with your key if needed
+  const API_KEY = '3900df0f4a12b7f5326d4d88bfb0750b'; // Your API key
   const CITY = 'Brussels';
   const UNITS = 'metric';
 
@@ -10,8 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(data => {
       const temp = Math.round(data.main.temp);
-      const weather = data.weather[0].description;
-      document.getElementById('weather-data').innerText = `Temp: ${temp}°C, ${weather}`;
+      const desc = data.weather[0].description;
+      const humidity = data.main.humidity;
+      const windSpeed = data.wind.speed;
+
+      document.getElementById('weather-data').innerHTML = `
+        <div><strong>${temp}°C</strong>, ${desc}</div>
+        <div>Humidity: ${humidity}%</div>
+        <div>Wind: ${windSpeed} m/s</div>
+      `;
     })
     .catch(error => {
       document.getElementById('weather-data').innerText = 'Error loading weather.';
